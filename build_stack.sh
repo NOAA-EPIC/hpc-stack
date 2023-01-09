@@ -114,7 +114,7 @@ build_info
 # ==============================================================================
 # Is this a single library build or the entire stack?
 if [ -n "${library:-""}" ]; then
-  build_lib $library
+  #build_lib $library
   echo "build_stack.sh: SUCCESS!"
   exit 0
 fi
@@ -122,9 +122,9 @@ fi
 # ==============================================================================
 #----------------------
 # Compiler and MPI
-build_lib gnu
+#build_lib gnu
 $MODULES || { [[ ${STACK_gnu_build:-} =~ [yYtT] ]] && export PATH="$PREFIX/bin:$PATH"; }
-build_lib mpi
+#build_lib mpi
 $MODULES || { [[ ${STACK_mpi_build:-} =~ [yYtT] ]] && export PATH="$PREFIX/bin:$PATH"; }
 
 # ==============================================================================
@@ -133,18 +133,18 @@ $MODULES || { [[ ${STACK_mpi_build:-} =~ [yYtT] ]] && export PATH="$PREFIX/bin:$
 # - should add a check at some point to see if they are already there.
 # this can be done in each script individually
 # it might warrant a --force flag to force rebuild when desired
-build_lib cmake
-build_lib udunits
-build_lib jpeg
-build_lib zlib
-build_lib libpng
-build_lib szip
-build_lib jasper
-build_lib gsl
-build_lib sqlite
-build_lib libtiff
-build_lib proj
-build_lib geos
+#build_lib cmake
+#build_lib udunits
+#build_lib jpeg
+#build_lib zlib
+#build_lib libpng
+#build_lib szip
+#build_lib jasper
+#build_lib gsl
+#build_lib sqlite
+#build_lib libtiff
+#build_lib proj
+#build_lib geos
 
 # Also build serial versions of HDF5 and netCDF, if using MODULES
 if $MODULES; then
@@ -154,13 +154,13 @@ if $MODULES; then
   export HPC_MPI=""
 
   # Build hdf5 and netcdf as serial versions
-  build_lib hdf5
-  build_lib netcdf
+  #build_lib hdf5
+  #build_lib netcdf
 
   # Build netcdf utilities with the serial netCDF library
-  build_lib nccmp
-  build_lib nco
-  build_lib cdo
+  #build_lib nccmp
+  #build_lib nco
+  #build_lib cdo
 
   # Restore $HPC_MPI variable
   export HPC_MPI=$_HPC_MPI
@@ -171,8 +171,8 @@ fi
 #----------------------
 # MPI-dependent
 # These must be rebuilt for each MPI implementation
-build_lib hdf5
-build_lib pnetcdf
+#build_lib hdf5
+#build_lib pnetcdf
 build_lib netcdf
 # Only build these if only parallel builds are installed
 if ! $MODULES; then

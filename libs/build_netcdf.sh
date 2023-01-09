@@ -147,6 +147,7 @@ set -x
 
 # Load netcdf-c before building netcdf-fortran
 set +x
+sed -i 'depends_on/-- depends_on/g' /opt/hpc-modules/modulefiles/mpi/intel-oneapi-compilers/2022.1.0/intel-oneapi-mpi/2021.6.0/netcdf/4.7.4.lua
 $MODULES && module load netcdf
 $MODULES && module list
 set -x
