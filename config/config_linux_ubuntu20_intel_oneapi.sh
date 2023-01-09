@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Compiler/MPI combination
-export HPC_COMPILER=${HPC_COMPILER:-" intel-oneapi-compilers/2022.1.0"}   
+export HPC_COMPILER=${HPC_COMPILER:-"intel-oneapi-compilers/2022.1.0"}   
 export HPC_MPI=${HPC_MPI:-"intel-oneapi-mpi/2021.6.0"}
 export HPC_PYTHON="python/dummy"
 
