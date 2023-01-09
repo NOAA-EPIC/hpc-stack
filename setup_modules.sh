@@ -147,7 +147,7 @@ if [[ ${overwritePythonModulefile:-} =~ [yYtT] ]]; then
   $SUDO cp $HPC_STACK_ROOT/modulefiles/core/hpc-$pythonName/hpc-$pythonName.lua \
            $PREFIX/modulefiles/core/hpc-$pythonName/$pythonVersion.lua
   echo "Are you using native python '$pythonName' [yes|YES|no|NO]: (DEFAULT: NO)  "
-  read response
+  response="YES"
   if [[ $response =~ [yYtT] ]]; then
     echo -e "==========================\n USING NATIVE PYTHON"
     cd $PREFIX/modulefiles/core/hpc-$pythonName
@@ -163,7 +163,7 @@ if [[ ${overwriteCompilerModulefile:-} =~ [yYtT] ]]; then
   $SUDO cp $HPC_STACK_ROOT/modulefiles/core/hpc-$compilerName/hpc-$compilerName.lua \
            $PREFIX/modulefiles/core/hpc-$compilerName/$compilerVersion.lua
   echo "Are you using native compiler '$compilerName' [yes|YES|no|NO]: (DEFAULT: NO)  "
-  read response
+  response="NO"
   if [[ $response =~ [yYtT] ]]; then
     echo -e "==========================\n USING NATIVE COMPILER"
     cd $PREFIX/modulefiles/core/hpc-$compilerName
@@ -179,7 +179,7 @@ if [[ ${overwriteMPIModulefile:-} =~ [yYtT] ]]; then
   $SUDO cp $HPC_STACK_ROOT/modulefiles/compiler/compilerName/compilerVersion/hpc-$mpiName/hpc-$mpiName.lua \
            $PREFIX/modulefiles/compiler/$compilerName/$compilerVersion/hpc-$mpiName/$mpiVersion.lua
   echo "Are you using native MPI '$mpiName' [yes|YES|no|NO]: (DEFAULT: NO)  "
-  read response
+  response="NO"
   if [[ $response =~ [yYtT] ]]; then
     echo -e "===========================\n USING NATIVE MPI"
     cd $PREFIX/modulefiles/compiler/$compilerName/$compilerVersion/hpc-$mpiName
