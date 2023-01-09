@@ -79,7 +79,7 @@ function no_modules {
   # this function defines environment variables that are
   # normally done by the modules.
   # It's mainly intended for use when not using LMod
-
+  set -x
   local compilerName=$(echo $HPC_COMPILER | cut -d/ -f1)
   local mpiName=$(echo $HPC_MPI | cut -d/ -f1)
 
@@ -91,6 +91,11 @@ function no_modules {
       export SERIAL_CC=${SERIAL_CC:-"gcc"}
       export SERIAL_CXX=${SERIAL_CXX:-"g++"}
       export SERIAL_FC=${SERIAL_FC:-"gfortran"}
+      ;;
+    intel-oneapi-compilers|ips )
+      export SERIAL_CC=${SERIAL_CC:-"icc"}
+      export SERIAL_CXX=${SERIAL_CXX:-"icpc"}
+      export SERIAL_FC=${SERIAL_FC:-"ifort"}
       ;;
     intel|ips )
       export SERIAL_CC=${SERIAL_CC:-"icc"}
@@ -120,6 +125,11 @@ function no_modules {
       export MPI_FC=${MPI_FC:-"mpifort"}
       ;;
     impi )
+      export MPI_CC=${MPI_CC:-"mpiicc"}
+      export MPI_CXX=${MPI_CXX:-"mpiicpc"}
+      export MPI_FC=${MPI_FC:-"mpiifort"}
+      ;;
+    intel-oneapi-mpi )
       export MPI_CC=${MPI_CC:-"mpiicc"}
       export MPI_CXX=${MPI_CXX:-"mpiicpc"}
       export MPI_FC=${MPI_FC:-"mpiifort"}

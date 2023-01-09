@@ -8,12 +8,14 @@ install_as=${STACK_esmf_install_as:-${version}}
 
 software=${name}_$version
 
+set -x
 # Hyphenated versions used for install prefix
 compiler=$(echo $HPC_COMPILER | sed 's/\//-/g')
 mpi=$(echo $HPC_MPI | sed 's/\//-/g')
-
 COMPILER=$(echo $HPC_COMPILER | cut -d/ -f1)
 MPI=$(echo $HPC_MPI | cut -d/ -f1)
+COMPILER="intel"
+MPI="intelmpi"
 
 host=$(uname -s)
 abi64=$(uname -m)

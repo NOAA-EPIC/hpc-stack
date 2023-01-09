@@ -122,9 +122,9 @@ fi
 # ==============================================================================
 #----------------------
 # Compiler and MPI
-build_lib gnu
+#build_lib gnu
 $MODULES || { [[ ${STACK_gnu_build:-} =~ [yYtT] ]] && export PATH="$PREFIX/bin:$PATH"; }
-build_lib mpi
+#build_lib mpi
 $MODULES || { [[ ${STACK_mpi_build:-} =~ [yYtT] ]] && export PATH="$PREFIX/bin:$PATH"; }
 
 # ==============================================================================
@@ -133,18 +133,18 @@ $MODULES || { [[ ${STACK_mpi_build:-} =~ [yYtT] ]] && export PATH="$PREFIX/bin:$
 # - should add a check at some point to see if they are already there.
 # this can be done in each script individually
 # it might warrant a --force flag to force rebuild when desired
-build_lib cmake
-build_lib udunits
-build_lib jpeg
-build_lib zlib
-build_lib libpng
-build_lib szip
-build_lib jasper
-build_lib gsl
-build_lib sqlite
-build_lib libtiff
-build_lib proj
-build_lib geos
+#build_lib cmake
+#build_lib udunits
+#build_lib jpeg
+#build_lib zlib
+#build_lib libpng
+#build_lib szip
+#build_lib jasper
+#build_lib gsl
+#build_lib sqlite
+#build_lib libtiff
+#build_lib proj
+#build_lib geos
 
 # Also build serial versions of HDF5 and netCDF, if using MODULES
 if $MODULES; then
@@ -154,13 +154,13 @@ if $MODULES; then
   export HPC_MPI=""
 
   # Build hdf5 and netcdf as serial versions
-  build_lib hdf5
-  build_lib netcdf
+  #build_lib hdf5
+  #build_lib netcdf
 
   # Build netcdf utilities with the serial netCDF library
-  build_lib nccmp
-  build_lib nco
-  build_lib cdo
+  #build_lib nccmp
+  #build_lib nco
+  #build_lib cdo
 
   # Restore $HPC_MPI variable
   export HPC_MPI=$_HPC_MPI
@@ -171,44 +171,45 @@ fi
 #----------------------
 # MPI-dependent
 # These must be rebuilt for each MPI implementation
-build_lib hdf5
-build_lib pnetcdf
-build_lib netcdf
+#build_lib hdf5
+#build_lib pnetcdf
+#build_lib netcdf
 # Only build these if only parallel builds are installed
 if ! $MODULES; then
-  build_lib nccmp
-  build_lib nco
-  build_lib cdo
+  #build_lib nccmp
+  #build_lib nco
+  #build_lib cdo
+  echo "nothing"
 fi
-build_lib pio
+#build_lib pio
 
 # NCEPlibs
 
 build_lib bacio
-build_lib sigio
-build_lib sfcio
-build_lib gfsio
-build_lib w3nco
-build_lib w3emc
-build_lib sp
-build_lib ip
-build_lib ip2
-build_lib landsfcutil
-build_lib nemsio
-build_lib nemsiogfs
-build_lib g2
-build_lib g2c
-build_lib g2tmpl
-build_lib crtm
-build_lib nceppost
-build_lib upp
-build_lib wrf_io
-build_lib bufr
-build_lib wgrib2
-build_lib prod_util
-build_lib grib_util
-build_lib ncio
-build_lib ncdiag
+#build_lib sigio
+#build_lib sfcio
+#build_lib gfsio
+#build_lib w3nco
+#build_lib sp
+#build_lib ip
+#build_lib ip2
+#build_lib landsfcutil
+#build_lib nemsio
+#build_lib w3emc
+#build_lib nemsiogfs
+#build_lib g2
+#build_lib g2c
+#build_lib g2tmpl
+#build_lib crtm
+#build_lib nceppost
+#build_lib upp
+#build_lib wrf_io
+#build_lib bufr
+#build_lib wgrib2
+#build_lib prod_util
+#build_lib grib_util
+#build_lib ncio
+#build_lib ncdiag
 
 if $MODULES; then
 
@@ -216,7 +217,7 @@ if $MODULES; then
   _HPC_MPI=$HPC_MPI
   export HPC_MPI=""
 
-  build_lib nemsio
+#  build_lib nemsio
 
   # Restore $HPC_MPI variable
   export HPC_MPI=$_HPC_MPI
@@ -226,48 +227,48 @@ fi
 
 # Other
 
-build_lib madis
+#build_lib madis
 
 # Python and associate virtual environments
 
-build_lib miniconda3
-build_lib r2d2
+#build_lib miniconda3
+#build_lib r2d2
 
 # JEDI 3rd party dependencies
 
-build_lib boost
-build_lib eigen
-build_lib gsl_lite
-build_lib gptl
-build_lib fftw
-build_lib tau2
-build_lib cgal
-build_lib json
-build_lib json_schema_validator
-build_lib pybind11
+#build_lib boost
+#build_lib eigen
+#build_lib gsl_lite
+#build_lib gptl
+#build_lib fftw
+#build_lib tau2
+#build_lib cgal
+#build_lib json
+#build_lib json_schema_validator
+#build_lib pybind11
 
 # JEDI dependencies
 
-build_lib ecbuild
-build_lib eckit
-build_lib fckit
-build_lib atlas
+#build_lib ecbuild
+#build_lib eckit
+#build_lib fckit
+#build_lib atlas
 
 # MET and METplus
 
-build_lib met
-build_lib metplus
+#build_lib met
+#build_lib metplus
 
 
 # UFS 3rd party dependencies
 
-build_lib esmf
-build_lib fms
-build_lib cmakemodules
-build_lib esma_cmake
-build_lib gftl_shared
-build_lib yafyaml
-build_lib mapl
+#build_lib esmf
+#build_lib fms
+#build_lib cmakemodules
+#build_lib esma_cmake
+#build_lib gftl_shared
+#build_lib yafyaml
+#build_lib mapl
 
 # ==============================================================================
 # optionally clean up

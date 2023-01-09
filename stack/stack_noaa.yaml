@@ -28,6 +28,10 @@ jasper:
   shared: NO
   version: 2.0.25
 
+nco:
+  build: YES
+  version: 5.0.6
+
 udunits:
   build: YES
   shared: NO
@@ -57,31 +61,42 @@ nccmp:
   build: YES
   version: 1.9.1.0
 
+met:
+  build: YES
+  repo: DTCenter
+  release_date: 20220516
+  version: 10.1.2
+
+metplus:
+  build: YES
+  repo: DTCenter
+  version: 4.1.3
+
 nco:
   build: YES
-  version: 5.0.6
+  version: 4.9.1
 
 cdo:
   build: YES
-  version: 1.9.8
+  version: 1.9.5
 
 pio:
   build: YES
-  version: 2.5.3
+  version: 2.5.2
   enable_pnetcdf: NO
   enable_gptl: NO
 
 esmf:
   build: YES
-  version: ESMF_8_2_0
-  install_as: 8.2.0
+  version: ESMF_8_2_1_beta_snapshot_04
+  install_as: 8.2.1b04
   shared: NO
   enable_pnetcdf: NO
   debug: NO
 
 fms:
   build: YES
-  version: 2022.01
+  version: 2021.03
   repo: noaa-gfdl
   cmake_opts: "-DGFS_PHYS=ON -D64BIT=ON -DOPENMP=ON"
 
@@ -144,8 +159,8 @@ landsfcutil:
 
 nemsio:
   build: YES
-  version: v2.5.4
-  install_as: 2.5.4
+  version: v2.5.2
+  install_as: 2.5.2
   is_nceplib: YES
 
 nemsiogfs:
@@ -156,14 +171,14 @@ nemsiogfs:
 
 w3emc:
   build: YES
-  version: v2.9.2
-  install_as: 2.9.2
+  version: v2.7.3
+  install_as: 2.7.3
   is_nceplib: YES
 
 g2:
   build: YES
-  version: v3.4.5
-  install_as: 3.4.5
+  version: v3.4.2
+  install_as: 3.4.2
   is_nceplib: YES
 
 g2c:
@@ -180,10 +195,10 @@ g2tmpl:
 
 crtm:
   build: YES
-  version: v2.4.0
-  install_as: 2.4.0
+  version: v2.3.0
+  install_as: 2.3.0
   is_nceplib: YES
-  install_fix: YES
+  install_fix: NO
 
 upp:
   build: YES
@@ -220,8 +235,8 @@ prod_util:
 
 grib_util:
   build: YES
-  version: v1.2.4
-  install_as: 1.2.4
+  version: v1.2.2
+  install_as: 1.2.2
   openmp: ON
   is_nceplib: YES
 
@@ -313,17 +328,17 @@ cmakemodules:
   version: v1.2.0
 
 gftl_shared:
-  build: YES
+  build: NO
   repo: Goddard-Fortran-Ecosystem
   version: v1.5.0
 
 yafyaml:
-  build: YES
+  build: NO
   repo: Goddard-Fortran-Ecosystem
   version: v0.5.1
 
 mapl:
-  build: YES
+  build: NO
   repo: GEOS-ESM
   esmf_version: 8.2.0
   version: v2.22.0
