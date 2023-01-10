@@ -1,0 +1,66 @@
+libpng:
+  build: NO
+  shared: NO
+  version: 1.6.37
+
+nco:
+  build: NO
+  version: 5.0.6
+
+met:
+  build: NO
+  repo: DTCenter
+  release_date: 20220516
+  version: 10.1.2
+
+metplus:
+  build: NO
+  repo: DTCenter
+  version: 4.1.3
+
+pio:
+  build: YES
+  version: 2.5.3
+  enable_pnetcdf: NO
+  enable_gptl: NO
+
+esmf:
+  build: NO 
+  version: v8.3.0b09
+  install_as: 8.3.0b09
+  shared: NO
+  enable_pnetcdf: NO
+  debug: NO
+
+fms:
+  build: NO 
+  version: 2022.01
+  repo: noaa-gfdl
+  cmake_opts: "-DGFS_PHYS=ON -D64BIT=ON -DOPENMP=ON"
+
+g2:
+  build: NO
+  version: v3.4.5
+  install_as: 3.4.5
+  is_nceplib: YES
+
+gftl_shared:
+  build: NO 
+  repo: Goddard-Fortran-Ecosystem
+  version: v1.5.0
+
+yafyaml:
+  build: NO 
+  repo: Goddard-Fortran-Ecosystem
+  version: v0.5.1
+
+mapl:
+  build: NO 
+  repo: GEOS-ESM
+  esmf_version: 8.3.0b09
+  version: v2.22.0
+
+ufswm:
+  build: NO 
+  version: 1.0.0
+  is_pyvenv: YES

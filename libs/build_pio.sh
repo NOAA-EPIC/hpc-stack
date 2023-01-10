@@ -63,7 +63,7 @@ URL=https://github.com/NCAR/ParallelIO
 [[ -d $software ]] || git clone $URL $software
 [[ -d $software ]] && cd $software || ( echo "$software does not exist, ABORT!"; exit 1 )
 
-git checkout $branch
+#git checkout $branch
 
 # These repositories are used internally by PIO. Download them so DOWNLOAD_ONLY option works.
 [[ -d CMake_Fortran_utils ]] || git clone https://github.com/CESM-Development/CMake_Fortran_utils
@@ -88,7 +88,7 @@ cmake ..\
   -DCMAKE_VERBOSE_MAKEFILE=1 \
   $CMAKE_FLAGS
 
-
+find ./ -iname link.txt | xargs sed -i 's/-lm/-lm -lz/g' 
 VERBOSE=$MAKE_VERBOSE make -j${NTHREADS:-4}
 [[ $MAKE_CHECK =~ [yYtT] ]] && make test
 VERBOSE=$MAKE_VERBOSE $SUDO make install
