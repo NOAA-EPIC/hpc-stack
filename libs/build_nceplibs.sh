@@ -35,6 +35,7 @@ if $MODULES; then
       using_mpi=YES
       ;;
     nemsio)
+      module load w3emc/2.9.0
       version_number=$(echo $version | cut -c 2-)
       major_ver=$(echo $version_number | cut -d. -f1)
       minor_ver=$(echo $version_number | cut -d. -f2)
@@ -51,7 +52,7 @@ if $MODULES; then
           fi
       fi
       if [[ $using_mpi = "UNKNOWN" ]]; then
-        w3dep="w3emc"
+        w3dep="w3emc/2.9.2"
         using_mpi=NO
         if [[ ! -z $mpi ]]; then
           module load hpc-$HPC_MPI
@@ -221,9 +222,9 @@ case $name in
     ;;
   nemsio)
     if [[ ${using_mpi:-} =~ [yYtT] ]]; then
-      extraCMakeFlags="-DENABLE_MPI=ON"
+      extraCMakeFlags="-DCMAKE_PREFIX_PATH=/opt/hpc-modules/intel-oneapi-compilers-2022.1.0/w3emc/2.9.0/lib/ -DENABLE_MPI=ON"
     else
-      extraCMakeFlags="-DENABLE_MPI=OFF"
+      extraCMakeFlags="-DCMAKE_PREFIX_PATH=/opt/hpc-modules/intel-oneapi-compilers-2022.1.0/w3emc/2.9.0/lib/ -DENABLE_MPI=OFF"
     fi
     ;;
   ncdiag)

@@ -194,9 +194,10 @@ build_lib sp
 build_lib ip
 build_lib ip2
 build_lib landsfcutil
+#build_lib w3emc
+module load w3emc/2.9.0
 build_lib nemsio
 find /opt/hpc-modules/modulefiles/ -iname *.lua | xargs grep -l depends_on | xargs sed -i 's/depends_on/--depends_on/g'
-build_lib w3emc
 build_lib nemsiogfs
 build_lib g2
 build_lib g2c
